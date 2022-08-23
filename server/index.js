@@ -1,11 +1,9 @@
 
 import express  from 'express';
-
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import mongoose  from 'mongoose';
 import postRoutes from './routes/posts.js'
-
 
 const app = express();
 const mongooseUrl = 'mongodb+srv://merndb:Azerty@cluster0.sjxrc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'

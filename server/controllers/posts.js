@@ -23,13 +23,13 @@ export const addPosts = async (req, res) => {
     }
 };
 
-export const updatePost = async(req, res )=>{
-   const{id} = rep.params;
-   const post = req.body;
+export const updatePost = async (req, res )=>{
+  const {id} = req.params;
+  const post = req.body;
 
-   if(!mongoose.Types.ObjectId.isValid(id))
-   return res.status(404).send('no post with that id ');
+  if(!mongoose.Types.ObjectId.isValid(id))
+  return res.status(404).send('no post with that id ');
 
-   const updatePost = await Posts.findByIdAndUpdate(_id, post, {new: true})
-    res.json(updatePost);
+  const updatePost = await Posts.findByIdAndUpdate(id, post, {new: true})
+  res.json(updatePost);
 }
