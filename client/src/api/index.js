@@ -1,8 +1,11 @@
 import axois from 'axios';
 
-const url = 'http://localhost:5000/posts';
+const API = axois.create({ baseURL: 'http://localhost:5000' });
 
-export const fetchPosts = () => axois.get(url);
-export const createPost = (newPost) => axois.post(url, newPost);
-export const updatePost =(id, updatePost) => axois.patch(`${url}/${id}`, updatePost);
-//export const deletePost= () => axois.delete(`${url}/${_id}`);
+export const fetchPosts = () => API.get(url);
+export const createPost = (newPost) => API.post(url, newPost);
+export const updatePost = (id, updatePost) => API.patch(`${url}/${id}`, updatePost);
+export const deletePost = (id) => API.delete(`${url}/${id}`);
+
+export const signin = (formData) => API.post('user/login', formData)
+export const signup = (formData) => API.post('user/signup', formData)

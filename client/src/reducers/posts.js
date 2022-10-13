@@ -1,5 +1,3 @@
-//posts this a state 
-
 const posts = (posts = [], action) => {
   switch (action.type) {
     case 'FETCH_ALL':
@@ -7,7 +5,9 @@ const posts = (posts = [], action) => {
     case "CREATE":
       return [...posts, action.payload]
     case 'UPDATE':
-      return posts.map((post)=>post._id === action.payload_id ? action.payload :post)
+      return posts.map((post) => post._id === action.payload_id ? action.payload : post)
+    case 'DELETE':
+      return posts.filter((post) => post._id !== action.poyload)
     default:
       return posts
   }

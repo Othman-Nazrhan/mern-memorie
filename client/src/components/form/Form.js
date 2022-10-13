@@ -11,31 +11,27 @@ const Form = ({currentId,setCurrentId }) => {
   const [postData, setPostData] = useState({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
   const post = useSelector((state) => (currentId ? state.posts.find((p) => p._id === currentId) : null));
 
- useEffect(() => {
-    if (post) setPostData(post);
-  }, 
+  useEffect(() => {
+    if (post) 
+    setPostData(post);
+  },
   [post]);
 
-  
   const handleSubmit = e => {
     e.preventDefault();
-    if(currentId===0 ){
+    if(currentId === 0 ){
       dispatch(createPost(postData));
       clear();
     }
     else{
-       dispatch(updatePost(currentId, postData));
-       clear();
-      console.log(postData);
+      dispatch(updatePost(currentId, postData));
+      clear();
     }
   };
-
-
 
   const clear = () => {
     setCurrentId (null);
     setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
-
   }
 
   return (
