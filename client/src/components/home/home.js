@@ -14,7 +14,6 @@ const Home = () => {
 
   const user = JSON.parse(localStorage.getItem('profile'));
 
-
   useEffect(() => {
     dispatch(getAllPosts);
   }, [dispatch])
